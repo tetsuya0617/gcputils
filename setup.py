@@ -11,7 +11,7 @@ setup(
   long_description_content_type="text/markdown",
   license="MIT",
   packages=find_packages(exclude=['.gitignore','tests']),
-  # url="https://github.com/crwilcox/mypackage",
+  url="https://github.com/tetsuya0617/gcputils",
   author="Tetsuya Hirata",
   classifiers=[
     "Development Status :: 3 - Alpha",
