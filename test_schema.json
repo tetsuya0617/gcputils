@@ -1,0 +1,74 @@
+[
+  {
+    "name": "data_extract_date",
+    "type": "STRING"
+  },
+  {
+    "name": "school_id",
+    "type": "STRING"
+  },
+  {
+    "name": "student_id",
+    "type": "STRING"
+  },
+  {
+    "name": "student_gtz",
+    "type": "STRING"
+  },
+  {
+    "name": "gtz_set_date",
+    "type": "STRING"
+  },
+  {
+    "name": "test_id",
+    "type": "INTEGER"
+  },
+  {
+    "name": "test_name",
+    "type": "STRING"
+  },
+  {
+    "name": "atom_id",
+    "type": "STRING"
+  },
+  {
+    "name": "atom_name",
+    "type": "STRING"
+  },
+  {
+    "name": "school_type",
+    "type": "STRING"
+  },
+  {
+    "name": "kyoka",
+    "type": "STRING"
+  },
+  {
+    "name": "kamoku",
+    "type": "STRING"
+  },
+    {
+    "name": "tangen_dai",
+    "type": "STRING"
+  },
+  {
+    "name": "tangen_chu",
+    "type": "STRING"
+  },
+  {
+    "name": "tangen_syo",
+    "type": "STRING"
+  },
+  {
+    "name": "mondai_no",
+    "type": "STRING"
+  },
+  {
+    "name": "kaito_kekka",
+    "type": "INTEGER"
+  },
+    {
+    "name": "kaito_hi",
+    "type": "STRING"
+  }
+]
