@@ -1,3 +1,10 @@
+# [gcs_accessor.py]
+#
+# Copyright (c) [2019] [Tetsuya Hirata]
+#
+# This software is released under the MIT License.
+# http://opensource.org/licenses/mit-license.php
+
 import io, os, csv, gzip
 from google.cloud import storage
 

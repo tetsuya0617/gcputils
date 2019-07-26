@@ -8,6 +8,11 @@ While there are [google-cloud-storage](https://github.com/googleapis/google-clou
 `google-cloud-accessor` focuses on the simplicity of usage pattern and includes the selected features as described below.  
 
 - bq_accessor
+  - get_dataset
+  - get_table_name
+  - create_table_from_json
+  - load_data_from_gcs
+  - execute_query
 - gcs_accessor
   - get_blob
   - get_blob_list
@@ -15,7 +20,7 @@ While there are [google-cloud-storage](https://github.com/googleapis/google-clou
   - upload_csv_gzip
   - download_csv_gzip
 
-Usage
+Setup
 -
 #### Installation
 ```bash
@@ -27,6 +32,8 @@ pip install google-cloud-accessor
 export GOOGLE_APPLICATION_CREDENTIALS='full path to credential key json file'
 ```
 
+Usage of Google Compute Storage Accessor
+-
 #### Import GoogleComputeStorageAccessor object 
 ```python
 import gcp_accessor
@@ -58,8 +65,69 @@ gcs.upload_csv_gzip('bucket_name', 'full path to file on gcs', 'texts')
 gcs.download_csv_gzip('bucket_name', 'full path to file on gcs')
 ```
 
-Documentation
+Usage of Big Query Accessor
 -
+#### Import BigQueryAccessor object 
+```python
+import gcp_accessor
+bq = gcp_accessor.BigQueryAccessor()
+```
+#### Check dataset exsistence
+```python
+bq.get_dataset()
+```
 
-Setup
+#### Check table exsistence
+```python
+bq.get_table_name(dataset)
+```
+
+#### Create table on bigquery based on schema json file
+```python
+bq.create_table_from_json(path_schema_file, dataset, table_name)
+```
+
+#### Load data from gcs (You have to upload file on gcs.).
+```python
+bq.load_data_from_gcs(
+        dataset,
+        uris,
+        table_name,
+        location="US",
+        skip_leading_rows=0,
+        source_format="CSV",
+        create_disposition="CREATE_NEVER",
+        write_disposition="WRITE_EMPTY",
+    )
+```
+
+#### Execute a simple query or query with the below parameters
+```python
+bq.execute_query(
+        query,
+        job_id=None,
+        job_id_prefix=None,
+        location="US",
+        timeout=30,
+        page_size=0,
+        project=None,
+        allow_large_results=False,
+        destination=None,
+        destination_encryption_configuration=None,
+        dry_run=False,
+        labels=None,
+        priority=None,
+        query_parameters=None,
+        schema_update_options=None,
+        table_definitions=None,
+        time_partitioning=None,
+        udf_resources=None,
+        use_legacy_sql=False,
+        use_query_cache=False,
+        write_disposition=None,
+    )
+```
+
+Note
 -
+Some argument names and descriptions about each argument are cited and referred from the documents of ['Google Cloud Client Libraries for Python'](https://googleapis.github.io/google-cloud-python/latest/index.html)

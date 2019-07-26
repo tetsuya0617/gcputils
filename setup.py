@@ -5,8 +5,8 @@ with open("README.md") as f:
 
 setup(
   name="google-cloud-accessor",
-  version="0.0.6",
-  description="My first package",
+  version="0.0.7",
+  description="My draft package",
   long_description=long_description,
   long_description_content_type="text/markdown",
   license="MIT",
@@ -24,5 +24,6 @@ setup(
   ],
   install_requires=[
     "google-cloud-storage",
+    "google-cloud-bigquery",
   ],
 )
