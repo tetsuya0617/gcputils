@@ -108,10 +108,10 @@ class BigQueryAccessor:
         """Load data from gcs (You have to upload file on gcs.).
 
         Args:
-            dataset:
-            uris:
-            table_name:
-            location:
+            dataset(str): ID of dataset containing the table.
+            uris(str):URIs of data files to be loaded; in format "gs://.../..."
+            table_name(str): The ID of the table (=table name on bigquery loaded from the data on gcs)
+            location(str): Location where to run the job. Must match the location of the destination table.
             skip_leading_rows: Number of rows to skip when reading data (CSV only).
             source_format:
                    'AVRO': Specifies Avro format.
