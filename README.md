@@ -7,6 +7,7 @@ While there are [google-cloud-storage](https://github.com/googleapis/google-clou
 
 `google-cloud-accessor` focuses on the simplicity of usage pattern and includes the selected features as described below.  
 
+***
 - bq_accessor
   - get_dataset
   - get_table_name
@@ -20,6 +21,7 @@ While there are [google-cloud-storage](https://github.com/googleapis/google-clou
   - upload_csv_gzip
   - download_csv_gzip
 
+***
 Setup
 -
 #### Installation
@@ -105,26 +107,9 @@ bq.load_data_from_gcs(
 ```python
 bq.execute_query(
         query,
-        job_id=None,
-        job_id_prefix=None,
         location="US",
         timeout=30,
-        page_size=0,
-        project=None,
-        allow_large_results=False,
-        destination=None,
-        destination_encryption_configuration=None,
-        dry_run=False,
-        labels=None,
-        priority=None,
-        query_parameters=None,
-        schema_update_options=None,
-        table_definitions=None,
-        time_partitioning=None,
-        udf_resources=None,
-        use_legacy_sql=False,
-        use_query_cache=False,
-        write_disposition=None,
+        page_size=0
     )
 ```
 
