@@ -9,7 +9,7 @@ import io, os, csv, gzip
 from google.cloud import storage
 
 
-class GoogleComputeStorageAccessor:
+class GoogleCloudStorageAccessor:
     def __init__(self):
         """
         Create Google Storage Client
