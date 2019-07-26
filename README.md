@@ -34,12 +34,12 @@ pip install google-cloud-accessor
 export GOOGLE_APPLICATION_CREDENTIALS='full path to credential key json file'
 ```
 
-Usage of Google Compute Storage Accessor
+Usage of Google Cloud Storage Accessor
 -
-#### Import GoogleComputeStorageAccessor object 
+#### Import GoogleCloudStorageAccessor object 
 ```python
 import gcp_accessor
-gcs = gcp_accessor.GoogleComputeStorageAccessor()
+gcs = gcp_accessor.GoogleCloudStorageAccessor()
 ```
 
 #### Get Binary Large Object (blob) from google cloud storage (gcs)
