@@ -12,7 +12,7 @@ from google.cloud import storage
 class GoogleCloudStorageAccessor:
     def __init__(self):
         """
-        Create Google Storage Client
+        Create Google Cloud Storage Client
         """
         if "GOOGLE_APPLICATION_CREDENTIALS" not in os.environ:
             raise Exception("Set environment variable　as GOOGLE_APPLICATION_CREDENTIALS")

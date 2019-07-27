@@ -11,6 +11,8 @@ While there are [google-cloud-storage](https://github.com/googleapis/google-clou
 - bq_accessor
   - get_dataset
   - get_table_name
+  - check_if_dataset_exists
+  - check_if_table_exists
   - create_table_from_json
   - load_data_from_gcs
   - execute_query
@@ -36,7 +38,7 @@ export GOOGLE_APPLICATION_CREDENTIALS='full path to credential key json file'
 
 Usage of Google Cloud Storage Accessor
 -
-#### Import GoogleCloudStorageAccessor object 
+#### Import gcp_accessor and create google cloud storage client
 ```python
 import gcp_accessor
 gcs = gcp_accessor.GoogleCloudStorageAccessor()
@@ -49,12 +51,12 @@ gcs.get_blob('bucket_name', 'full path to file on gcs')
 
 #### Get Binary Large Object (blob) lists as HTTPIterator object from gcs
 ```python
-gcs.get_blob_list('bucket_name', prefix, delimiter)
+gcs.get_blob_list('bucket_name', prefix=None, delimiter=None)
 ```
 
 #### Get uris lists
 ```python
-gcs.get_uris_list('bucket_name', prefix, delimiter)
+gcs.get_uris_list('bucket_name', prefix=None, delimiter=None)
 ```
 
 #### Upload gzip object on gcs
@@ -69,32 +71,43 @@ gcs.download_csv_gzip('bucket_name', 'full path to file on gcs')
 
 Usage of Big Query Accessor
 -
-#### Import BigQueryAccessor object 
+#### Import gcp_accessor and create big query client
 ```python
 import gcp_accessor
 bq = gcp_accessor.BigQueryAccessor()
 ```
-#### Check dataset exsistence
+#### Get datasets if datasets do not exist, then return empty list
+
 ```python
 bq.get_dataset()
 ```
 
-#### Check table exsistence
+#### Get table names if table names do not exist, then return exception error message
 ```python
-bq.get_table_name(dataset)
+bq.get_table_name('dataset_name')
 ```
+#### Check if dataset exsists in gcs and then return True or False
+```python
+bq.check_if_dataset_exists('dataset_name')
+```
+
+#### Check if table exsists in gcs and then return True or False
+```python
+bq.check_if_table_exists('table_name')
+```
+
 
 #### Create table on bigquery based on schema json file
 ```python
-bq.create_table_from_json(path_schema_file, dataset, table_name)
+bq.create_table_from_json('path_schema_file', 'dataset', 'table_name')
 ```
 
 #### Load data from gcs (You have to upload file on gcs.).
 ```python
 bq.load_data_from_gcs(
-        dataset,
-        uris,
-        table_name,
+        'dataset_name',
+        'uris',
+        'table_name',
         location="US",
         skip_leading_rows=0,
         source_format="CSV",
@@ -103,16 +116,33 @@ bq.load_data_from_gcs(
     )
 ```
 
-#### Execute a simple query or query with the below parameters
+#### Execute a simple query or query with the below optipons
 ```python
 bq.execute_query(
-        query,
+        'query',
         location="US",
         timeout=30,
-        page_size=0
+        page_size=0,
+        project=None,
+        allow_large_results=False,
+        destination=None,
+        destination_encryption_configuration=None,
+        dry_run=False,
+        labels=None,
+        priority=None,
+        query_parameters=None,
+        schema_update_options=None,
+        table_definitions=None,
+        time_partitioning=None,
+        udf_resources=None,
+        use_legacy_sql=False,
+        use_query_cache=False,
+        write_disposition=None
     )
 ```
 
+
+
 Note
 -
-Some argument names and descriptions about each argument are cited and referred from the documents of ['Google Cloud Client Libraries for Python'](https://googleapis.github.io/google-cloud-python/latest/index.html)
+Some argument names and descriptions about each argument are cited and referred from the documents of ['Google Cloud Client Libraries for Python'](https://googleapis.github.io/google-cloud-python/latest/index.html) The explanations about each argument are written in the code.

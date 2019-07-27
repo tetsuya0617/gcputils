@@ -31,20 +31,34 @@ class BigQueryAccessor:
 
     def get_dataset(self):
         """
-        Check dataset exsistence
+        Get datasets if datasets do not exist, then return empty list
         """
         datasets = [dataset.dataset_id for dataset in self.bq_client.list_datasets()]
         return datasets
 
     def get_table_name(self, dataset):
         """
-        Check table exsistence
+        Get table names if table names do not exist, then return exception error message
         """
         try:
             table_names = [table.table_id for table in self.bq_client.list_tables(dataset)]
         except Exception:
-            raise Exception("Dataset is not correct name")
+            raise Exception("Dataset name is not correct")
         return table_names
+
+    def check_if_dataset_exists(self, dataset):
+        """
+        Check if dataset exsists in gcs and then return True or False
+        """
+        datasets = self.get_dataset
+        return True if dataset in datasets else False
+
+    def check_if_table_exists(self, table_name):
+        """
+        Check if table exsists in gcs and then return True or False
+        """
+        table_names = self.get_table_name()
+        return True if table_name in table_names else False
 
     def create_table_from_json(self, path_schema_file, dataset, table_name):
         """
@@ -55,7 +69,7 @@ class BigQueryAccessor:
         with open(path_schema_file, "r") as f:
             table_schema = json.load(f)
 
-        if dataset not in self.get_dataset():
+        if dataset not in self.get_dataset:
             raise Exception("Dataset was not found")
 
         if table_name in self.get_table_name(dataset):
@@ -91,7 +105,7 @@ class BigQueryAccessor:
         try:
             self.bq_client.create_table(table)
         except Exception:
-            raise Exception("Table could successfully not be created on bigquery")
+            raise Exception("Table could not successfully be created on bigquery")
         return "Table could successfully be created on bigquery"
 
     def load_data_from_gcs(

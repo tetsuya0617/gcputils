@@ -1,29 +1,27 @@
 from setuptools import setup, find_packages
 
 with open("README.md") as f:
-  long_description = f.read()
+    long_description = f.read()
+
 
 setup(
-  name="google-cloud-accessor",
-  version="0.0.8",
-  description="My draft package",
-  long_description=long_description,
-  long_description_content_type="text/markdown",
-  license="MIT",
-  packages=find_packages(exclude=['.gitignore','tests']),
-  url="https://github.com/tetsuya0617/gcputils",
-  author="Tetsuya Hirata",
-  classifiers=[
-    "Development Status :: 3 - Alpha",
-    "License :: OSI Approved :: MIT License",
-    "Programming Language :: Python :: 3.5",
-    "Programming Language :: Python :: 3.6",
-    "Programming Language :: Python :: 3.7",
-    "Operating System :: OS Independent",
-    "Topic :: Utilities",
-  ],
-  install_requires=[
-    "google-cloud-storage",
-    "google-cloud-bigquery",
-  ],
+    name="google-cloud-accessor",
+    version="0.0.9",
+    description="My draft package",
+    long_description=long_description,
+    long_description_content_type="text/markdown",
+    license="MIT",
+    packages=find_packages(exclude=[".gitignore", "tests"]),
+    url="https://github.com/tetsuya0617/gcputils",
+    author="Tetsuya Hirata",
+    classifiers=[
+        "Development Status :: 3 - Alpha",
+        "License :: OSI Approved :: MIT License",
+        "Programming Language :: Python :: 3.5",
+        "Programming Language :: Python :: 3.6",
+        "Programming Language :: Python :: 3.7",
+        "Operating System :: OS Independent",
+        "Topic :: Utilities",
+    ],
+    install_requires=["google-cloud-storage", "google-cloud-bigquery"],
 )
