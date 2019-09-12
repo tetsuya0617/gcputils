@@ -5,15 +5,18 @@ with open("README.md") as f:
 
 
 setup(
-    name="google-cloud-accessor",
-    version="0.0.9",
-    description="My draft package",
+    name="gcp-accessor",
+    version="0.0.1",
+    description="Accessor to Google Cloud Storage and Big Query",
     long_description=long_description,
     long_description_content_type="text/markdown",
     license="MIT",
     packages=find_packages(exclude=[".gitignore", "tests"]),
     url="https://github.com/tetsuya0617/gcputils",
     author="Tetsuya Hirata",
+    author_email="tetsuya.hirata@classi.jp",
+    maintainer="Tetsuya Hirata",
+    maintainer_email="tetsuya.hirata@classi.jp",
     classifiers=[
         "Development Status :: 3 - Alpha",
         "License :: OSI Approved :: MIT License",

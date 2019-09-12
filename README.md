@@ -1,11 +1,11 @@
 This software is released under the MIT License, see LICENSE.txt.
 
 
-`google-cloud-accessor` is a wrapper of [Google Cloud Storage API](https://cloud.google.com/storage/) and [Google BigQuery API](https://cloud.google.com/bigquery/what-is-bigquery) for more simply accesseing both functions.  
+`gcp-accessor` is a wrapper of [Google Cloud Storage API](https://cloud.google.com/storage/) and [Google BigQuery API](https://cloud.google.com/bigquery/what-is-bigquery) for more simply accesseing both functions.  
 
 While there are [google-cloud-storage](https://github.com/googleapis/google-cloud-python/tree/master/storage/) and [google-cloud-bigquery](https://github.com/googleapis/google-cloud-python) library provided by Google which have several sophisticated features, frequently used features can be limited in python application development.  
 
-`google-cloud-accessor` focuses on the simplicity of usage pattern and includes the selected features as described below.  
+`gcp-accessor` focuses on the simplicity of usage pattern and includes the selected features as described below.  
 
 ***
 - bq_accessor
@@ -28,7 +28,7 @@ Setup
 -
 #### Installation
 ```bash
-pip install google-cloud-accessor
+pip install gcp-accessor
 ```
 
 #### Set GOOGLE_APPLICATION_CREDENTIALS
