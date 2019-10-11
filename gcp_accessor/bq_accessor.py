@@ -50,7 +50,7 @@ class BigQueryAccessor:
         """
         Check if dataset exsists in gcs and then return True or False
         """
-        datasets = self.get_dataset
+        datasets = self.get_dataset()
         return True if dataset in datasets else False
 
     def check_if_table_exists(self, table_name):
@@ -69,7 +69,7 @@ class BigQueryAccessor:
         with open(path_schema_file, "r") as f:
             table_schema = json.load(f)
 
-        if dataset not in self.get_dataset:
+        if dataset not in self.get_dataset():
             raise Exception("Dataset was not found")
 
         if table_name in self.get_table_name(dataset):

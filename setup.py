@@ -6,7 +6,7 @@ with open("README.md") as f:
 
 setup(
     name="gcp-accessor",
-    version="0.0.1",
+    version="0.0.2",
     description="Accessor to Google Cloud Storage and Big Query",
     long_description=long_description,
     long_description_content_type="text/markdown",

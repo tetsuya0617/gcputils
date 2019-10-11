@@ -1,3 +1,25 @@
+Metadata-Version: 2.1
+Name: gcp-accessor
+Version: 0.0.2
+Summary: Accessor to Google Cloud Storage and Big Query
+Home-page: https://github.com/tetsuya0617/gcputils
+Author: Tetsuya Hirata
+Author-email: tetsuya.hirata@classi.jp
+Maintainer: Tetsuya Hirata
+Maintainer-email: tetsuya.hirata@classi.jp
+License: MIT
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Utilities
+Description-Content-Type: text/markdown
+Requires-Dist: google-cloud-storage
+Requires-Dist: google-cloud-bigquery
+
 This software is released under the MIT License, see LICENSE.txt.
 
 
@@ -146,3 +168,5 @@ bq.execute_query(
 Note
 -
 Some argument names and descriptions about each argument are cited and referred from the documents of ['Google Cloud Client Libraries for Python'](https://googleapis.github.io/google-cloud-python/latest/index.html) The explanations about each argument are written in the code.
+
+
