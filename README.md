@@ -93,7 +93,7 @@ bq.check_if_dataset_exists('dataset_name')
 
 #### Check if table exsists in bigquery and then return True or False
 ```python
-bq.check_if_table_exists('table_name')
+bq.check_if_table_exists('dataset_name', 'table_name')
 ```
 
 
