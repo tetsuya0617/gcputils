@@ -14,16 +14,13 @@ class GoogleCloudStorageAccessor:
         """
         Create Google Cloud Storage Client
         """
-        if "GOOGLE_APPLICATION_CREDENTIALS" not in os.environ:
-            raise Exception("Set environment variable　as GOOGLE_APPLICATION_CREDENTIALS")
-        elif not os.environ.get("GOOGLE_APPLICATION_CREDENTIALS"):
-            raise Exception(
-                "Set correct credential key file path in GOOGLE_APPLICATION_CREDENTIALS "
-            )
-        elif os.environ.get("GOOGLE_APPLICATION_CREDENTIALS"):
+        if "GOOGLE_APPLICATION_CREDENTIALS" in os.environ:
             # Local
-            json_key_file = os.environ.get("GOOGLE_APPLICATION_CREDENTIALS")
-            self.storage_client = storage.Client.from_service_account_json(json_key_file)
+            if not os.environ.get("GOOGLE_APPLICATION_CREDENTIALS"):
+                raise Exception("Set correct credential key file path in GOOGLE_APPLICATION_CREDENTIALS ")
+            else:
+                json_key_file = os.environ.get("GOOGLE_APPLICATION_CREDENTIALS")
+                self.storage_client = storage.Client.from_service_account_json(json_key_file)
         else:
             # Google Kubernetes Engine
             self.storage_client = storage.Client()
